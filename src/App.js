@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import 'admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css'
+import 'admin-lte/dist/css/AdminLTE.min.css'
+import 'admin-lte/dist/css/skins/_all-skins.min.css'
+import 'admin-lte/bower_components/Ionicons/css/ionicons.css'
+
+import Login from "./login/Login";
+import Dashboard from "./dashboard/Dashboard";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <BrowserRouter>
+            <div>
+                <Route exact path="/login" component={Login} />
+                <Route exact component={Dashboard} />
+            </div>
+        </BrowserRouter>
     );
   }
 }
