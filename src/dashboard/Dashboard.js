@@ -11,15 +11,16 @@ import {Redirect, Route, Switch} from "react-router-dom";
 
 class Dashboard extends Component {
   render() {
+    document.body.classList.remove('login-page');
     document.body.classList.add('skin-blue');
     document.body.classList.add('sidebar-mini');
     return (
         <div>
             <Header/>
             <Switch>
-                <Redirect exact  path="/" to={{pathname: "/blank1",}}/>
-                <Route exact path="/blank1" component={MainSection} />
-                <Route exact path="/blank2" component={MainSection2} />
+                <Redirect exact  path="/" to={{pathname: "/home",}}/>
+                <Route exact path="/home" component={MainSection} />
+                <Route exact path="/profile" component={MainSection2} />
                 {/*<Route component={NoMatch}/>*/}
             </Switch>
         </div>

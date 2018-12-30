@@ -13,8 +13,10 @@ class App extends Component {
     return (
         <BrowserRouter>
             <div>
-                <Route exact path="/login" component={Login} />
-                <Route exact component={Dashboard} />
+                <switch>
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/(home|profile)" component={Dashboard} />
+                </switch>
             </div>
         </BrowserRouter>
     );
