@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class MainSection2 extends Component {
+class Home extends Component {
   render() {
     return (
           <div className="content-wrapper">
             <section className="content-header">
               <h1>
-                Blank page 2
+                Blank page
                 <small>it all starts here</small>
               </h1>
               <ol className="breadcrumb">
@@ -44,4 +44,4 @@ class MainSection2 extends Component {
   }
 }
 
-export default MainSection2;
+export default Home;

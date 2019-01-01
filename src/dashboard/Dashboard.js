@@ -5,8 +5,8 @@ import 'admin-lte/dist/css/skins/_all-skins.min.css'
 import 'admin-lte/bower_components/Ionicons/css/ionicons.css'
 
 import Header from '../header/Header'
-import MainSection from "../mainsection/MainSection";
-import MainSection2 from "../mainsection/MainSection2";
+import Home from "../home/Home";
+import Profile from "../profile/Profile";
 import {Redirect, Route, Switch} from "react-router-dom";
 
 class Dashboard extends Component {
@@ -17,9 +17,9 @@ class Dashboard extends Component {
         <div>
             <Header/>
             <Switch>
-                <Redirect exact  path="/" to={{pathname: "/blank1",}}/>
-                <Route exact path="/blank1" component={MainSection} />
-                <Route exact path="/blank2" component={MainSection2} />
+                <Redirect exact  path="/" to={{pathname: "/home",}}/>
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/profile" component={Profile} />
                 {/*<Route component={NoMatch}/>*/}
             </Switch>
         </div>

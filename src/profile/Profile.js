@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-class MainSection extends Component {
+class Profile extends Component {
   render() {
     return (
           <div className="content-wrapper">
             <section className="content-header">
               <h1>
-                Blank page
+                Blank page 2
                 <small>it all starts here</small>
               </h1>
               <ol className="breadcrumb">
@@ -44,4 +44,4 @@ class MainSection extends Component {
   }
 }
 
-export default MainSection;
+export default Profile;
