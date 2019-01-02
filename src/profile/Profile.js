@@ -3,45 +3,49 @@ import React, { Component } from 'react';
 class Profile extends Component {
   render() {
     return (
+
           <div className="content-wrapper">
             <section className="content-header">
               <h1>
-                Blank page 2
-                <small>it all starts here</small>
+                User Profile
               </h1>
-              <ol className="breadcrumb">
-                <li><a href="#"><i className="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
-                <li className="active">Blank page</li>
-              </ol>
             </section>
 
             <section className="content">
-
-              <div className="box">
-                <div className="box-header with-border">
-                  <h3 className="box-title">Title</h3>
-
-                  <div className="box-tools pull-right">
-                    <button type="button" className="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                            title="Collapse">
-                      <i className="fa fa-minus"></i></button>
-                    <button type="button" className="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                      <i className="fa fa-times"></i></button>
+                  <div className="box box-primary">
+                    <div className="box-body box-profile">
+                      <img className="profile-user-img img-responsive img-circle" src="/img/user4-128x128.jpg"
+                           alt="User profile picture"/>
+                        <hr/>
+                        <ul className="list-group list-group-unbordered">
+                          <li className="list-group-item">
+                            <b>Name</b> <a className="pull-right">Nina Mcintire</a>
+                          </li>
+                          <li className="list-group-item">
+                            <b>Email</b> <a className="pull-right">example@gmail.com</a>
+                          </li>
+                          <li className="list-group-item">
+                            <b>CNIC</b> <a className="pull-right">xxxxx-xxxxxxx-x</a>
+                          </li>
+                          <li className="list-group-item">
+                            <b>Phone Number</b> <a className="pull-right">xxxx-xxxxxxx</a>
+                          </li>
+                           <li className="list-group-item">
+                            <b>Adress</b> <a className="pull-right">Green view coloy raja wala, p-482, street no-5/c</a>
+                          </li>
+                           <li className="list-group-item">
+                            <b>Subscription</b> <a className="pull-right">Pre-paid</a>
+                          </li>
+                           <li className="list-group-item">
+                            <b>Meter Number</b> <a className="pull-right">xxxx-xxxxxxx</a>
+                          </li>
+                        </ul>
+                        <a href="#" className="btn btn-primary btn-block">Edit</a>
+                    </div>
                   </div>
-                </div>
-                <div className="box-body">
-                  Start creating your amazing application!
-                </div>
-                <div className="box-footer">
-                  Footer
-                </div>
-              </div>
-
             </section>
           </div>
     );
   }
 }
-
 export default Profile;
