@@ -17,19 +17,23 @@ import Dashboard from "./dashboard/Dashboard";
 import NotFound from "./notfound/404";
 
 class App extends Component {
-  render() {
-    return (
-        <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/(home|profile|)" component={Dashboard} />
-                    <Route exact component={NotFound}/>
-                </Switch>
-            </div>
-        </BrowserRouter>
-    );
-  }
+    Constructor(prop){
+        this.state = {token: null}
+
+    }
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/(home|profile|)" component={Dashboard} />
+                        <Route exact component={NotFound}/>
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
