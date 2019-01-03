@@ -23,7 +23,7 @@ class App extends Component {
             <div>
                 <Switch>
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/(home|profile|)" component={Dashboard} />
+                    <Route exact path="/(home|profile|tickets|read|create|currentgraph|graphprediction)" component={Dashboard} />
                     <Route exact component={NotFound}/>
                 </Switch>
             </div>

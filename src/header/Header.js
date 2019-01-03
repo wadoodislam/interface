@@ -6,8 +6,8 @@ class Header extends Component {
         <div>
           <header className="main-header">
                 <a href="#" className="logo">
-                    <span className="logo-mini"><b>A</b>LT</span>
-                    <span className="logo-lg"><b>Admin</b>LTE</span>
+                    {/*<span className="logo-mini"><b>A</b>LT</span>*/}
+                    <span className="logo-lg"><b>Smart O Meter</b></span>
                 </a>
                 <nav className="navbar navbar-static-top">
                     <a href="#" className="sidebar-toggle" data-toggle="push-menu" role="button">
