@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import 'admin-lte/plugins/iCheck/square/blue.css'
+import Redirect from "react-router-dom/es/Redirect";
 class Login extends Component {
+
     constructor(props) {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.login = this.login.bind(this);
-
+        this.state = { redirectToReferrer: false };
     }
     handleInputChange(e){
         e.preventDefault();
@@ -25,10 +26,12 @@ class Login extends Component {
             body: data,
             method: "post"
         }).then((response) => response.json()).then((data) => {
-            if(this.state['remember_me']==='on'){
-                localStorage.setItem('token', data['token'])
-            }
+            localStorage.setItem('token', data['token'])
             sessionStorage.setItem('token', data['token'])
+            if(this.state['remember_me']==='on'){
+                localStorage.setItem('remember_me', this.state['remember_me'])
+            }
+            this.setState({ redirectToReferrer: true });
         })
     }
 
@@ -36,6 +39,14 @@ class Login extends Component {
         document.body.classList.remove('sidebar-mini');
         document.body.classList.remove('skin-blue');
         document.body.classList.add('login-page');
+        let { from } = this.props.location.state || { from: { pathname: "/" } };
+        let { redirectToReferrer } = this.state;
+        if (redirectToReferrer) {
+            return <Redirect to={from} />;
+        }
+        if (sessionStorage.getItem('token')!=='null') {
+            return <Redirect to={{pathname: "/"}} />;
+        }
         return (
             <div className="login-box">
                 <div className="login-logo">
