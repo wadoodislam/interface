@@ -18,7 +18,7 @@ class Dashboard extends Component {
         <div>
             <Header/>
             <Switch>
-                <Redirect exact  path="/" to={{pathname: "/home",}}/>
+                <Redirect exact  path="/" to={{pathname: "/home"}}/>
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/currentgraph" component={CurrentGraph}/>
@@ -26,7 +26,7 @@ class Dashboard extends Component {
                 <Route exact path="/create" component={Create}/>
                 <Route exact path="/graphprediction" component={GraphPrediction}/>
                 <Route exact path="/tickets" component={Ticket}/>
-                {/*<Route component={NoMatch}/>*/}
+                <Redirect to={{pathName: "/404"}}/>
             </Switch>
         </div>
     );
