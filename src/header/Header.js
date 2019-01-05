@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg'
+import {withRouter} from "react-router-dom";
+
 class Header extends Component {
   render() {
     return (
@@ -40,6 +42,7 @@ class Header extends Component {
                                     </li>
                                 </ul>
                             </li>
+                            <SignOut />
                         </ul>
                     </div>
                 </nav>
@@ -51,5 +54,18 @@ class Header extends Component {
     );
   }
 }
+
+
+const SignOut = withRouter(({ history }) =>
+        <button
+          onClick={() => {
+              history.push("/");
+              localStorage.removeItem('token');
+              sessionStorage.removeItem('token');
+          }}
+        >
+          Sign out
+        </button>);
+
 
 export default Header;
