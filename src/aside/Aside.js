@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
 
-class Create extends Component {
-    render() {
-        return (
-            <div>
-            <div className="content-wrapper">
-                <div className="box box-primary">
-                    <div className="box-header with-border">
-                        <h3 className="box-title">Create New Ticket</h3>
-                    </div>
-                    <div className="box-body">
-                        <div className="form-group">
-                            <input className="form-control" placeholder="Title:"/>
-                        </div>
-                        <div className="form-group">
-                    <textarea id="compose-textarea" className="form-control">
-                      <h1><u>Heading Of Message</u></h1>
-                    </textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-               <aside className="main-sidebar">
+class Aside extends Component {
+  render() {
+    return (
+        <aside className="main-sidebar">
                 <section className="sidebar">
                   <div className="user-panel">
                     <div className="pull-left image">
@@ -32,19 +14,13 @@ class Create extends Component {
                       <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
                     </div>
                   </div>
-                  <form action="#" method="get" className="sidebar-form">
-                    <div className="input-group">
-                      <input type="text" name="q" className="form-control" placeholder="Search..."/>
-                    <span className="input-group-btn">
-                      <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search"></i>
-                      </button>
-                    </span>
-                    </div>
-                  </form>
+
                   <ul className="sidebar-menu" data-widget="tree">
                     <li className="header">MAIN NAVIGATION</li>
-                       <li><a href="/home"><i className="fa fa-home"></i> <span>Home</span></a></li>
+                    <li><a href="/home"><i className="fa fa-home"></i> <span>Home</span></a></li>
                     <li><a href="/profile"><i className="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="/tickets/create"><i className="fa fa-line-pencil"></i> <span>Create Ticket</span></a></li>
+                    <li><a href="/tickets"><i className="fa fa-line-sticky-note-o"></i><span>Read Tickets</span></a></li>
                    <li className="treeview">
                       <a href="#">
                         <i className="fa fa-folder-open-o"></i>
@@ -55,7 +31,7 @@ class Create extends Component {
                       </a>
                       <ul className="treeview-menu">
                         <li><a href="/tickets"><i className="fa fa-line-list"></i>All Tickets</a></li>
-                        <li><a href="/create"><i className="fa fa-line-pencil"></i>Create Tickets</a></li>
+                        <li><a href="ticket/create"><i className="fa fa-line-pencil"></i>Create Tickets</a></li>
                           <li><a href="/read"><i className="fa fa-line-sticky-note-o"></i>Read Tickets</a></li>
                       </ul>
                     </li>
@@ -77,20 +53,8 @@ class Create extends Component {
                   </ul>
                 </section>
               </aside>
-                 <aside className="control-sidebar control-sidebar-dark">
-
-                    <ul className="nav nav-tabs nav-justified control-sidebar-tabs">
-                        <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i className="fa fa-home"></i></a>
-                        </li>
-                        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i
-                            className="fa fa-gears"></i></a></li>
-                    </ul>
-
-
-
-                </aside>
-            </div>
-        );
-    }
+    );
+  }
 }
-export default Create;
+
+export default Aside;

@@ -3,7 +3,6 @@ import {
     BrowserRouter,
     Route,
     Redirect,
-    withRouter,
     Switch
 } from "react-router-dom";
 
@@ -11,6 +10,7 @@ import 'admin-lte/bower_components/bootstrap/dist/css/bootstrap.min.css'
 import 'admin-lte/dist/css/AdminLTE.min.css'
 import 'admin-lte/dist/css/skins/_all-skins.min.css'
 import 'admin-lte/bower_components/Ionicons/css/ionicons.css'
+import 'admin-lte/bower_components/font-awesome/css/font-awesome.min.css'
 
 import Login from "./login/Login";
 import Dashboard from "./dashboard/Dashboard";

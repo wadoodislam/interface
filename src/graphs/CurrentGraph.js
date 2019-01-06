@@ -98,8 +98,8 @@ class CurrentGraph extends Component {
                     <ul className="nav nav-tabs nav-justified control-sidebar-tabs">
                         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i className="fa fa-home"></i></a>
                         </li>
-                        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i
-                            className="fa fa-gears"></i></a></li>
+                        <li><a href="#control-sidebar-settings-tab" data-toggle="tab">
+                            <i className="fa fa-gears"></i></a></li>
                     </ul>
 
 

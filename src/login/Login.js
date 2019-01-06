@@ -36,9 +36,6 @@ class Login extends Component {
     }
 
     render() {
-        document.body.classList.remove('sidebar-mini');
-        document.body.classList.remove('skin-blue');
-        document.body.classList.add('login-page');
         let { from } = this.props.location.state || { from: { pathname: "/" } };
         let { redirectToReferrer } = this.state;
         if (redirectToReferrer) {
@@ -47,6 +44,9 @@ class Login extends Component {
         if (sessionStorage.getItem('token')!=='null') {
             return <Redirect to={{pathname: "/"}} />;
         }
+        document.body.classList.remove('sidebar-mini');
+        document.body.classList.remove('skin-blue');
+        document.body.classList.add('login-page');
         return (
             <div className="login-box">
                 <div className="login-logo">
