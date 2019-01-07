@@ -21,6 +21,7 @@ class Aside extends Component {
                     <li><a href="/profile"><i className="fa fa-user"></i> <span>Profile</span></a></li>
                     <li><a href="/tickets/create"><i className="fa fa-line-pencil"></i> <span>Create Ticket</span></a></li>
                     <li><a href="/tickets"><i className="fa fa-line-sticky-note-o"></i><span>Read Tickets</span></a></li>
+                    <li><a href="/announcements"><i className="fa fa-bullhorn"></i><span>Read Announcements</span></a></li>
                    <li className="treeview">
                       <a href="#">
                         <i className="fa fa-folder-open-o"></i>
