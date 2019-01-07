@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import TicketRow from "./TicketRow";
+import NotFound from "../notfound/404";
 
 class TicketReader extends Component {
     state = {
-        single: false,
         tickets: [],
-        current: -1
-    }
+    };
     constructor(props){
         super(props)
-        this.clickHandler = this.clickHandler.bind(this)
     }
     componentDidMount(){
         this.setState({
             tickets: []
-        })
+        });
         this.loadTickets()
     }
 
     loadTickets(){
-        let thisComp = this
+        let thisComp = this;
         const options = {
             method: "get",
             headers: {
                 "Authorization": "Token " + sessionStorage.getItem('token')
             }
-        }
+        };
         console.log(options)
         fetch("http://127.0.0.1:8000/api/tickets/", options)
             .then((response) => response.json()).then((tickets) => {
@@ -35,17 +33,30 @@ class TicketReader extends Component {
              })
         })
     }
-    clickHandler(ticketIndex){
-        debugger
-        this.setState({
-            single: true,
-            current: ticketIndex
-        })
-    }
-
     render() {
-        let {tickets} = this.state
-        return (
+        let {tickets} = this.state;
+        let {ticketId} = this.props.match.params;
+
+        if (ticketId) {
+            ticketId = parseInt(ticketId);
+            if (isNaN(ticketId)) {
+                return <NotFound internal={true} />;
+            }
+            else if(this.state.tickets.length >= ticketId && ticketId > 0){
+                return <TicketPage ticket={tickets[ticketId-1]}/>;
+            }
+        }
+        return <TicketsTable tickets={tickets} />
+    }
+}
+
+function TicketPage(props){
+    return "";
+}
+
+function TicketsTable(props) {
+    let {tickets} = props;
+    return (
             <div>
                 <section className="content">
 
@@ -77,7 +88,7 @@ class TicketReader extends Component {
                                                 <th>Detail</th>
                                             </tr>
                                             {tickets.length > 0 ? tickets.map((ticket, index)=>{
-                                                return (<TicketRow key={ticket.id} click={this.clickHandler} index={index+1} ticket={ticket}/>);
+                                                return (<TicketRow key={ticket.id} index={index+1} ticket={ticket}/>);
                                             }):null}
                                         </tbody>
                                     </table>
@@ -88,6 +99,7 @@ class TicketReader extends Component {
                 </section>
             </div>
         );
-    }
 }
+
+
 export default TicketReader;

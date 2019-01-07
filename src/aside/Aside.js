@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from "react-router-dom/es/Link";
 
 class Aside extends Component {
   render() {
@@ -17,25 +18,22 @@ class Aside extends Component {
 
                   <ul className="sidebar-menu" data-widget="tree">
                     <li className="header">MAIN NAVIGATION</li>
-                    <li><a href="/home"><i className="fa fa-home"></i> <span>Home</span></a></li>
-                    <li><a href="/profile"><i className="fa fa-user"></i> <span>Profile</span></a></li>
-                    <li><a href="/tickets/create"><i className="fa fa-line-pencil"></i> <span>Create Ticket</span></a></li>
-                    <li><a href="/tickets"><i className="fa fa-line-sticky-note-o"></i><span>Read Tickets</span></a></li>
-                   <li className="treeview">
+                    <li><Link to="/home"><i className="fa fa-home"/> <span>Home</span></Link></li>
+                    <li><Link to="/profile"><i className="fa fa-user"/> <span>Profile</span></Link></li>
+                    <li className="treeview">
                       <a href="#">
-                        <i className="fa fa-folder-open-o"></i>
+                        <i className="fa fa-folder-open-o"/>
                         <span>Tickets</span>
                         <span className="pull-right-container">
-              <i className="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i className="fa fa-angle-left pull-right"/>
+                        </span>
                       </a>
                       <ul className="treeview-menu">
-                        <li><a href="/tickets"><i className="fa fa-line-list"></i>All Tickets</a></li>
-                        <li><a href="ticket/create"><i className="fa fa-line-pencil"></i>Create Tickets</a></li>
-                          <li><a href="/read"><i className="fa fa-line-sticky-note-o"></i>Read Tickets</a></li>
+                        <li><Link to="/tickets"><i className="fa fa-line-list"/>All Tickets</Link></li>
+                        <li><Link to="tickets/create"><i className="fa fa-line pencil"/>Create New</Link></li>
                       </ul>
                     </li>
-                    <li><a href="/documentation"><i className="fa fa-book"></i> <span>Documentation</span></a></li>
+                    <li><Link to="/documentation"><i className="fa fa-book"/> <span>Documentation</span></Link></li>
                     <li className="treeview">
                       <a href="#">
                         <i className="fa fa-bar-chart"></i>
