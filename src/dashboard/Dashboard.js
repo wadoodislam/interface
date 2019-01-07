@@ -27,7 +27,7 @@ class Dashboard extends Component {
                     {/*<Route exact path="/currentgraph" component={CurrentGraph}/>*/}
                     {/*<Route exact path="/read" component={Read}/>*/}
                     <Route exact path="/tickets/create" component={CreateTicket}/>
-                    {/*<Route exact path="/tickets" component={ReadTicket}/>*/}
+                    <Route exact path="/tickets" component={ReadTicket}/>
                     {/*<Route exact path="/graphprediction" component={GraphPrediction}/>*/}
                     {/*<Route exact path="/tickets" component={Ticket}/>*/}
                     <Redirect to={{pathname: "/404"}}/>

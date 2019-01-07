@@ -3,13 +3,23 @@ import TicketRow from "./TicketRow";
 
 class ReadTicket extends Component {
     state = {
-        tickets: []
+        single: false,
+        tickets: [],
+        current: -1
     }
     constructor(props){
         super(props)
-        this.get_tickets()
+        this.clickHandler = this.clickHandler.bind(this)
     }
-    get_tickets(){
+    componentDidMount(){
+        this.setState({
+            tickets: []
+        })
+        this.loadTickets()
+    }
+
+    loadTickets(){
+        let thisComp = this
         const options = {
             method: "get",
             headers: {
@@ -20,22 +30,30 @@ class ReadTicket extends Component {
         fetch("http://127.0.0.1:8000/api/tickets/", options)
             .then((response) => response.json()).then((tickets) => {
             console.log(tickets)
-            this.setState({tickets: tickets})
+            thisComp.setState({
+                tickets: tickets.results
+             })
         })
     }
-    render() {
-        let tickets = this.state.tickets
-        tickets = tickets.map(function(item, index){
-            return(<TicketRow ticket={item} />);
+    clickHandler(ticketIndex){
+        debugger
+        this.setState({
+            single: true,
+            current: ticketIndex
         })
+    }
+
+    render() {
+        let {tickets} = this.state
         return (
             <div>
                 <section className="content">
+
                     <div className="row">
                         <div className="col-xs-12">
                             <div className="box">
                                 <div className="box-header">
-                                    <h3 className="box-title">Responsive Hover Table</h3>
+                                    <h3 className="box-title">Tickets</h3>
 
                                     {/*<div className="box-tools">*/}
                                         {/*<div className="input-group input-group-sm" style="width: 150px;">*/}
@@ -50,14 +68,18 @@ class ReadTicket extends Component {
                                 </div>
                                 <div className="box-body table-responsive no-padding">
                                     <table className="table table-hover">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>User</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Reason</th>
-                                        </tr>
-                                        {tickets}
+                                        <tbody>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Subject</th>
+                                                <th>Date Opened</th>
+                                                <th>Status</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                            {tickets.length > 0 ? tickets.map((ticket, index)=>{
+                                                return (<TicketRow click={this.clickHandler} index={index+1} ticket={ticket}/>);
+                                            }):null}
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 
 class TicketRow extends Component {
-    constructor(prop) {
-        super(prop);
+    constructor(props){
+        super(props)
+        this.onClick = this.onClick.bind(this)
+
+    }
+    onClick(e){
+        e.preventDefault()
+        debugger
+        this.props.click(this.props.index)
     }
     render() {
+        const {ticket} = this.props
+        const {index} = this.props
+        const {click} = this.props
         return (
-               <tr>
-                    <td>{this.prop.ticket.id}</td>
-                    <td>{this.prop.ticket.title}</td>
-                    <td>{this.prop.ticket.date_opened}</td>
-                    <td><span className="label label-success">{this.prop.ticket.status}</span></td>
-                    <td>{this.prop.ticket.messages[0]}</td>
-               </tr>
-        );
+            ticket !== undefined ?
+            <tr>
+                <td>{index}</td>
+                <td><a onClick={this.onClick}>{ticket.subject}</a></td>
+                <td>{ticket.date_opened}</td>
+                <td><span className="label label-success">{ticket.status}</span></td>
+                <td>{ticket.messages[0].detail}</td>
+            </tr>
+            :null);
     }
 }
 export default TicketRow;
