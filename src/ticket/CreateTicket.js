@@ -16,7 +16,7 @@ class CreateTicket extends Component {
     sendTicketData(e) {
         e.preventDefault();
         let ticket = {
-            'title': this.state.title,
+            'subject': this.state.subject,
             'status': 'O',
             'messages':[
                 {
@@ -38,7 +38,7 @@ class CreateTicket extends Component {
         fetch("http://127.0.0.1:8000/api/tickets/", options)
             .then((response) => response.json()).then((data) => {
             console.log(data)
-            this.setState({title: "", message:""})
+            this.setState({subject: "", message:""})
         })
     }
     render() {
@@ -60,10 +60,10 @@ class CreateTicket extends Component {
                                     <div className="box-body">
                                         <form>
                                             <div className="form-group">
-                                                <input name="title" onChange={this.handleInputChange} className="form-control" placeholder="Title:"/>
+                                                <input name="subject" onChange={this.handleInputChange} className="form-control" placeholder="Subject"/>
                                             </div>
                                             <div className="form-group">
-                                                <textarea id="compose-textarea" name="message" onChange={this.handleInputChange} className="form-control">
+                                                <textarea id="compose-textarea" name="message" onChange={this.handleInputChange} className="form-control" placeholder="Detail">
                                                 </textarea>
                                             </div>
                                             <div className="row">
