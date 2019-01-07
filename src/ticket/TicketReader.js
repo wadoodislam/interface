@@ -6,9 +6,6 @@ class TicketReader extends Component {
     state = {
         tickets: [],
     };
-    constructor(props){
-        super(props)
-    }
     componentDidMount(){
         this.setState({
             tickets: []

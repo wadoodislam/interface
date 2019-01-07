@@ -6,9 +6,6 @@ class AnnouncementReader extends Component {
     state = {
         announcements: [],
     }
-    constructor(props){
-        super(props)
-    }
     componentDidMount(){
         this.setState({
             announcements: []

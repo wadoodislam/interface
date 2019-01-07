@@ -8,11 +8,10 @@ class Aside extends Component {
                 <section className="sidebar">
                   <div className="user-panel">
                     <div className="pull-left image">
-                      <img src="/img/user4-128x128.jpg" className="img-circle" alt="User Image"/>
+                      <img src="../../public/img/Avatar.png" className="img-circle" alt="User Image"/>
                     </div>
                     <div className="pull-left info">
                       <p>Nina Mcintire</p>
-                      <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
                     </div>
                   </div>
 
@@ -30,25 +29,26 @@ class Aside extends Component {
                         </span>
                       </a>
                       <ul className="treeview-menu">
-                        <li><Link to="/tickets"><i className="fa fa-line-list"/>All Tickets</Link></li>
-                        <li><Link to="/tickets/create"><i className="fa fa-line pencil"/>Create New</Link></li>
+                        <li><Link to="/tickets"><i className="fa fa-list"/>All Tickets</Link></li>
+                        <li><Link to="/tickets/create"><i className="fa fa-pencil-square-o"/>Create New</Link></li>
                       </ul>
                     </li>
-                    <li><Link to="/documentation"><i className="fa fa-book"/> <span>Documentation</span></Link></li>
+                    <li><Link to="/documentation"><i className="fa fa-book"/><span>Documentation</span></Link></li>
                     <li className="treeview">
                       <a href="#">
-                        <i className="fa fa-bar-chart"></i>
+                        <i className="fa fa-bar-chart"/>
                         <span>Usage Graphs</span>
                         <span className="pull-right-container">
-              <i className="fa fa-angle-left pull-right"></i>
-            </span>
+                          <i className="fa fa-angle-left pull-right"/>
+                        </span>
                       </a>
                       <ul className="treeview-menu">
-                        <li><a href="/currentgraph"><i className="fa fa-line-chart"></i> Current Usage</a></li>
-                        <li><a href="/graphprediction"><i className="fa fa-line-chart"></i> Usage Prediction</a></li>
+                        <li><Link to="/currentgraph"><i className="fa fa-line-chart"/> Current Usage</Link></li>
+                        <li><Link to="/graphprediction"><i className="fa fa-line-chart"/> Usage Prediction</Link></li>
                       </ul>
                     </li>
-                    <li><a href="/history"><i className="fa fa-history"></i> <span>History</span></a></li>
+                    <li><Link to="/history"><i className="fa fa-history"/><span>History</span></Link></li>
+                    <li className=""><Link to="/history"><i className="fa fa-lock"/><span>Sign Out</span></Link></li>
                   </ul>
                 </section>
               </aside>
