@@ -6,8 +6,11 @@ import 'admin-lte/bower_components/Ionicons/css/ionicons.css'
 
 class NotFound extends Component {
   render() {
-      document.body.classList.remove('skin-blue');
-      document.body.classList.remove('sidebar-mini');
+      let {internal} = this.props;
+      if(!internal){
+          document.body.classList.remove('skin-blue');
+          document.body.classList.remove('sidebar-mini');
+      }
     return (
         <div>
             <section className="content-header">
