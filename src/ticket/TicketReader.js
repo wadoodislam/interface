@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TicketRow from "./TicketRow";
 
-class ReadTicket extends Component {
+class TicketReader extends Component {
     state = {
         single: false,
         tickets: [],
@@ -90,4 +90,4 @@ class ReadTicket extends Component {
         );
     }
 }
-export default ReadTicket;
+export default TicketReader;

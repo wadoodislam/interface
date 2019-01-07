@@ -5,11 +5,11 @@ import Home from "../home/Home";
 import Profile from "../profile/Profile";
 import CurrentGraph from "../graphs/CurrentGraph";
 import CreateTicket from "../ticket/CreateTicket";
-import ReadTicket from "../ticket/ReadTicket"
+import TicketReader from "../ticket/TicketReader"
 import GraphPrediction from "../graphs/GraphPrediction";
-import Ticket from "../ticket/Ticket"
 import {Redirect, Route, Switch} from "react-router-dom";
 import Aside from "../aside/Aside";
+import TicketCreator from "../ticket/TicketCreator";
 
 class Dashboard extends Component {
   render() {
@@ -26,8 +26,8 @@ class Dashboard extends Component {
                     <Route exact path="/profile" component={Profile} />
                     {/*<Route exact path="/currentgraph" component={CurrentGraph}/>*/}
                     {/*<Route exact path="/read" component={Read}/>*/}
-                    <Route exact path="/tickets/create" component={CreateTicket}/>
-                    <Route exact path="/tickets" component={ReadTicket}/>
+                    <Route exact path="/tickets/create" component={TicketCreator}/>
+                    <Route exact path="/tickets" component={TicketReader}/>
                     {/*<Route exact path="/graphprediction" component={GraphPrediction}/>*/}
                     {/*<Route exact path="/tickets" component={Ticket}/>*/}
                     <Redirect to={{pathname: "/404"}}/>
