@@ -5,16 +5,16 @@ import NotFound from "../notfound/404";
 class AnnouncementReader extends Component {
     state = {
         announcements: [],
-    }
+    };
     componentDidMount(){
         this.setState({
             announcements: []
-        })
+        });
         this.loadAnnouncements()
     }
 
     loadAnnouncements(){
-        let thisComp = this
+        let thisComp = this;
         const options = {
             method: "get",
             headers: {
@@ -31,7 +31,7 @@ class AnnouncementReader extends Component {
         })
     }
     render() {
-        let {announcements} = this.state
+        let {announcements} = this.state;
         let {announcementId} = this.props.match.params;
 
         if (announcementId) {
@@ -46,7 +46,38 @@ class AnnouncementReader extends Component {
 }
 
 function AnnouncementPage(props){
-    return "";
+    let {announcement} = props;
+    return (
+        <div>
+            <section className="content-header">
+                <h1>
+                    Announcement Details
+                </h1>
+            </section>
+            <section className="content">
+                <div className="row">
+                    <div className="col-xs-12">
+                        <div className="box box-primary">
+                            <div className="box-header with-border">
+                              <h2 className="box-title">Subject: {announcement.subject}</h2>
+                            </div>
+                            <div className="box-body no-padding">
+                                <div className="mailbox-read-info">
+                                    <h5>
+                                        <span className="mailbox-read-time">Effective From: {announcement.effective_from}</span>
+                                        <span className="mailbox-read-time pull-right">Effective Till: {announcement.effective_till}</span>
+                                    </h5>
+                                </div>
+                                <div className="mailbox-read-message">
+                                    <h4>Details</h4><p>{announcement.detail}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 }
 
 function AnnouncementTable(props) {
