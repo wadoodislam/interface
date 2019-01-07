@@ -62,12 +62,12 @@ class AnnouncementReader extends Component {
                                                 <th>ID</th>
                                                 <th>Subject</th>
                                                 <th>Detail</th>
-                                                <th>Area</th>
                                                 <th>Effective From</th>
                                                 <th>Effective Till</th>
+                                                <th>Areas</th>
                                             </tr>
-                                            {announcements.length > 0 ? announcements.map((announcements, index)=>{
-                                                return (<AnnouncementRow key={announcements.id} index={index+1} announcements={announcements}/>);
+                                            {announcements.length > 0 ? announcements.map((announcement, index)=>{
+                                                return (<AnnouncementRow key={announcements.id} index={index+1} announcement={announcement}/>);
                                             }):null}
                                         </tbody>
                                     </table>
