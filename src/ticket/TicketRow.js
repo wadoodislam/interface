@@ -8,7 +8,6 @@ class TicketRow extends Component {
     }
     onClick(e){
         e.preventDefault()
-        debugger
         this.props.click(this.props.index)
     }
     render() {
