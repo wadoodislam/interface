@@ -77,7 +77,7 @@ class TicketReader extends Component {
                                                 <th>Detail</th>
                                             </tr>
                                             {tickets.length > 0 ? tickets.map((ticket, index)=>{
-                                                return (<TicketRow click={this.clickHandler} index={index+1} ticket={ticket}/>);
+                                                return (<TicketRow key={ticket.id} click={this.clickHandler} index={index+1} ticket={ticket}/>);
                                             }):null}
                                         </tbody>
                                     </table>
