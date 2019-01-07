@@ -3,17 +3,14 @@ import AnnouncementRow from "./AnnouncementRow";
 
 class AnnouncementReader extends Component {
     state = {
-        single: false,
         announcements: [],
-        current: -1
     }
     constructor(props){
         super(props)
-        this.clickHandler = this.clickHandler.bind(this)
     }
     componentDidMount(){
         this.setState({
-            announcement: []
+            announcements: []
         })
         this.loadAnnouncements()
     }
@@ -25,27 +22,16 @@ class AnnouncementReader extends Component {
             headers: {
                 "Authorization": "Token " + sessionStorage.getItem('token')
             }
-        }
-        console.log(options)
+        };
+        console.log(options);
         fetch("http://127.0.0.1:8000/api/announcements/", options)
-            .then((response) => {
-                debugger
-               return response.json()
-            }).then((announcements) => {
-            console.log(announcements)
+            .then((response) => response.json()).then((announcements) => {
+            console.log(announcements);
             thisComp.setState({
                 announcements: announcements.results
              })
         })
     }
-    clickHandler(announcementIndex){
-        debugger
-        this.setState({
-            single: true,
-            current: announcementIndex
-        })
-    }
-
     render() {
         let {announcements} = this.state
         return (
@@ -81,7 +67,7 @@ class AnnouncementReader extends Component {
                                                 <th>Effective Till</th>
                                             </tr>
                                             {announcements.length > 0 ? announcements.map((announcements, index)=>{
-                                                return (<AnnouncementRow click={this.clickHandler} index={index+1} announcements={announcements}/>);
+                                                return (<AnnouncementRow key={announcements.id} index={index+1} announcements={announcements}/>);
                                             }):null}
                                         </tbody>
                                     </table>
