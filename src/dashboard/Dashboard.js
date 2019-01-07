@@ -4,12 +4,11 @@ import Header from '../header/Header'
 import Home from "../home/Home";
 import Profile from "../profile/Profile";
 import CurrentGraph from "../graphs/CurrentGraph";
-import CreateTicket from "../ticket/CreateTicket";
+import TicketCreator from "../ticket/TicketCreator";
 import TicketReader from "../ticket/TicketReader"
 import GraphPrediction from "../graphs/GraphPrediction";
 import {Redirect, Route, Switch} from "react-router-dom";
 import Aside from "../aside/Aside";
-import TicketCreator from "../ticket/TicketCreator";
 
 class Dashboard extends Component {
   render() {
