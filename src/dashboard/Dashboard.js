@@ -27,6 +27,7 @@ class Dashboard extends Component {
                     <Route exact path="/tickets/create" component={TicketCreator}/>
                     <Route exact path="/tickets/:ticketId?" component={TicketReader}/>
                     <Route exact path="/announcements" component={AnnouncementReader}/>
+                    <Route exact path="/announcements/:announcementId?" component={AnnouncementReader}/>
                     <Redirect to={{pathname: "/404"}}/>
                 </Switch>
             </div>

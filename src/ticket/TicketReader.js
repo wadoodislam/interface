@@ -39,12 +39,10 @@ class TicketReader extends Component {
 
         if (ticketId) {
             ticketId = parseInt(ticketId);
-            if (isNaN(ticketId)) {
-                return <NotFound internal={true} />;
-            }
-            else if(this.state.tickets.length >= ticketId && ticketId > 0){
+            if (!isNaN(ticketId) && tickets.length >= ticketId && ticketId > 0) {
                 return <TicketPage ticket={tickets[ticketId-1]}/>;
             }
+            return <NotFound internal={true} />;
         }
         return <TicketsTable tickets={tickets} />
     }

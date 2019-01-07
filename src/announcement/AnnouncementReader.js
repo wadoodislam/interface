@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AnnouncementRow from "./AnnouncementRow";
+import NotFound from "../notfound/404";
 
 class AnnouncementReader extends Component {
     state = {
@@ -34,8 +35,27 @@ class AnnouncementReader extends Component {
     }
     render() {
         let {announcements} = this.state
-        return (
-            <div>
+        let {announcementId} = this.props.match.params;
+
+        if (announcementId) {
+            announcementId = parseInt(announcementId);
+            if (!isNaN(announcementId) && announcements.length >= announcementId && announcementId > 0) {
+                return <AnnouncementPage announcement={announcements[announcementId-1]}/>;
+            }
+            return <NotFound internal={true} />;
+        }
+        return <AnnouncementTable announcements={announcements} />
+    }
+}
+
+function AnnouncementPage(props){
+    return "";
+}
+
+function AnnouncementTable(props) {
+    let {announcements} = props;
+    return (
+        <div>
                 <section className="content">
 
                     <div className="row">
@@ -77,9 +97,10 @@ class AnnouncementReader extends Component {
                     </div>
                 </section>
             </div>
-        );
-    }
+    );
 }
+
+
 export default AnnouncementReader;
 
 

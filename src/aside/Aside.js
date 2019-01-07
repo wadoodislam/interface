@@ -31,7 +31,7 @@ class Aside extends Component {
                       </a>
                       <ul className="treeview-menu">
                         <li><Link to="/tickets"><i className="fa fa-line-list"/>All Tickets</Link></li>
-                        <li><Link to="tickets/create"><i className="fa fa-line pencil"/>Create New</Link></li>
+                        <li><Link to="/tickets/create"><i className="fa fa-line pencil"/>Create New</Link></li>
                       </ul>
                     </li>
                     <li><Link to="/documentation"><i className="fa fa-book"/> <span>Documentation</span></Link></li>
