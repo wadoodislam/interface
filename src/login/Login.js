@@ -26,12 +26,15 @@ class Login extends Component {
             body: data,
             method: "post"
         }).then((response) => response.json()).then((data) => {
-            localStorage.setItem('token', data['token'])
-            sessionStorage.setItem('token', data['token'])
-            if(this.state['remember_me']==='on'){
-                localStorage.setItem('remember_me', this.state['remember_me'])
+            let token = data['token'];
+            if(token){
+                localStorage.setItem('token', data['token'])
+                sessionStorage.setItem('token', data['token'])
+                if(this.state['remember_me']==='on'){
+                    localStorage.setItem('remember_me', this.state['remember_me'])
+                }
+                this.setState({ redirectToReferrer: true });
             }
-            this.setState({ redirectToReferrer: true });
         })
     }
 
