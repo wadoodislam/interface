@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
         <div>
-          <header className="main-header">
+            <header className="main-header">
                 <a href="#" className="logo">
                     <span className="logo-mini"><b>SOM</b></span>
                     <span className="logo-lg"><b>Smart O Meter</b></span>
@@ -47,7 +47,7 @@ class Header extends Component {
             </header>
             <div>
                 {this.props.children}
-          </div>
+            </div>
         </div>
     );
   }
