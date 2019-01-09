@@ -6,7 +6,7 @@ class Aside extends Component {
   render() {
      let {user} = this.props;
 
-    return (!user?"":
+    return (
         <aside className="main-sidebar">
             <section className="sidebar">
             <div className="user-panel">
@@ -14,7 +14,7 @@ class Aside extends Component {
                 <img src="/img/usernew.png" className="img-circle" alt="User Image"/>
               </div>
               <div className="pull-left info">
-                <p>{user.username}</p>
+                <p>{!user?"":user.username}</p>
               </div>
             </div>
             <ul className="sidebar-menu" data-widget="tree">

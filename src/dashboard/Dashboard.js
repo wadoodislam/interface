@@ -30,7 +30,7 @@ class Dashboard extends Component {
     }
   render() {
     // document.body.classList.add('skin-blue');
-    // document.body.classList.add('sidebar-mini');
+    document.body.classList.add('sidebar-mini');
     let {user} = this.state;
     return (
         <div>
