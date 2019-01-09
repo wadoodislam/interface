@@ -13,7 +13,7 @@ class Profile extends Component {
             <section className="content">
                   <div className="box box-primary">
                     <div className="box-body box-profile">
-                      <img className="profile-user-img img-responsive img-circle" src="/img/Avatar.png"
+                      <img className="profile-user-img img-responsive img-circle" src="/img/usernew.png"
                            alt="User profile picture"/>
                         <h3 className="profile-username text-center">{user.first_name} {user.last_name}</h3>
                         <ul className="list-group list-group-unbordered">

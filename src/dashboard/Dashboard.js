@@ -35,7 +35,7 @@ class Dashboard extends Component {
     return (
         <div>
             <Header/>
-            <Aside/>
+            <Aside  user={user}/>
             <div className="content-wrapper">
                 <Switch>
                     <Redirect exact  path="/" to={{pathname: "/home"}}/>
