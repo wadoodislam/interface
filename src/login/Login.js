@@ -43,7 +43,7 @@ class Login extends Component {
         if (redirectToReferrer) {
             return <Redirect to={from} />;
         }
-        if (sessionStorage.getItem('token')!=='null') {
+        if (localStorage.getItem('token')!==null) {
             return <Redirect to={{pathname: "/"}} />;
         }
         // document.body.classList.remove('sidebar-mini');
