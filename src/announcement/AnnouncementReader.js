@@ -18,9 +18,10 @@ class AnnouncementReader extends Component {
         const options = {
             method: "get",
             headers: {
-                "Authorization": "Token " + sessionStorage.getItem('token')
+                "Authorization": "Token " + localStorage.getItem('token')
             }
         };
+
         console.log(options);
         fetch("http://127.0.0.1:8000/api/announcements/", options)
             .then((response) => response.json()).then((announcements) => {

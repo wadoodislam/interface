@@ -28,8 +28,7 @@ class Login extends Component {
         }).then((response) => response.json()).then((data) => {
             let token = data['token'];
             if(token){
-                localStorage.setItem('token', data['token'])
-                sessionStorage.setItem('token', data['token'])
+                localStorage.setItem('token', data['token']);
                 if(this.state['remember_me']==='on'){
                     localStorage.setItem('remember_me', this.state['remember_me'])
                 }
@@ -47,18 +46,18 @@ class Login extends Component {
         if (sessionStorage.getItem('token')!=='null') {
             return <Redirect to={{pathname: "/"}} />;
         }
-        document.body.classList.remove('sidebar-mini');
-        document.body.classList.remove('skin-blue');
-        document.body.classList.add('login-page');
+        // document.body.classList.remove('sidebar-mini');
+        // document.body.classList.remove('skin-blue');
+        // document.body.classList.add('login-page');
         return (
             <div className="login-box">
                 <div className="login-logo">
-                    <a href="/home"><b>Smart O Meter</b></a>
+                    <b>Smart O Meter</b>
                 </div>
                 <div className="login-box-body">
                     <p className="login-box-msg">Sign in to start your session</p>
                     <form id="login-form">
-                        <div className="form-group has-feedback">
+                        <div className="form-group  has-feedback">
                             <input type="text" name="username" onChange={this.handleInputChange} required="required" className="form-control" placeholder="Username"/>
                                 <span className="glyphicon glyphicon-envelope form-control-feedback"/>
                         </div>

@@ -17,13 +17,6 @@ import Dashboard from "./dashboard/Dashboard";
 import NotFound from "./notfound/404";
 
 class App extends Component {
-    constructor(prop){
-        super(prop);
-        this.state = {
-            token: localStorage.getItem('token')
-        };
-        sessionStorage.setItem('token', this.state.token);
-    }
     render() {
         return (
             <BrowserRouter>
@@ -44,8 +37,7 @@ function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={props =>
-        sessionStorage.getItem('token')!=="null" ? (
+      render={props => localStorage.getItem('token')!==null ? (
           <Component {...props} />
         ) : (
           <Redirect

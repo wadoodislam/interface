@@ -18,7 +18,7 @@ class TicketReader extends Component {
         const options = {
             method: "get",
             headers: {
-                "Authorization": "Token " + sessionStorage.getItem('token')
+                "Authorization": "Token " + localStorage.getItem('token')
             }
         };
         console.log(options);

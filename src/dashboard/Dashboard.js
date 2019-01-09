@@ -12,9 +12,26 @@ import Aside from "../aside/Aside";
 import AnnouncementReader from "../announcement/AnnouncementReader";
 
 class Dashboard extends Component {
+    state ={
+        user: null
+    };
+    componentDidMount(){
+        fetch("http://127.0.0.1:8000/api/user", {
+            method: "get",
+            headers: {
+                "Authorization": "Token " + localStorage.getItem('token'),
+                "Content-Type": "application/json"
+            }
+        }).then((response) => response.json()).then((data) => {
+            this.setState({
+               user: data
+            });
+        })
+    }
   render() {
-    document.body.classList.add('skin-blue');
-    document.body.classList.add('sidebar-mini');
+    // document.body.classList.add('skin-blue');
+    // document.body.classList.add('sidebar-mini');
+    let {user} = this.state;
     return (
         <div>
             <Header/>
@@ -23,7 +40,7 @@ class Dashboard extends Component {
                 <Switch>
                     <Redirect exact  path="/" to={{pathname: "/home"}}/>
                     <Route exact path="/home" component={Home} />
-                    <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/profile" render={(props) => <Profile {...props} user={user} />} />
                     <Route exact path="/tickets/create" component={TicketCreator}/>
                     <Route exact path="/tickets/:ticketId?" component={TicketReader}/>
                     <Route exact path="/announcements" component={AnnouncementReader}/>

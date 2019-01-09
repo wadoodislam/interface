@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class Profile extends Component {
   render() {
-    return (
+      let {user} = this.props;
+    return (!user?"":
           <div>
             <section className="content-header">
               <h1>
@@ -12,30 +13,27 @@ class Profile extends Component {
             <section className="content">
                   <div className="box box-primary">
                     <div className="box-body box-profile">
-                      <img className="profile-user-img img-responsive img-circle" src="/img/user4-128x128.jpg"
+                      <img className="profile-user-img img-responsive img-circle" src="/img/Avatar.png"
                            alt="User profile picture"/>
-                        <hr/>
+                        <h3 className="profile-username text-center">{user.first_name} {user.last_name}</h3>
                         <ul className="list-group list-group-unbordered">
                           <li className="list-group-item">
-                            <b>Name</b> <a className="pull-right">Nina Mcintire</a>
+                            <b>Email</b> <a className="pull-right">{user.email}</a>
                           </li>
                           <li className="list-group-item">
-                            <b>Email</b> <a className="pull-right">example@gmail.com</a>
+                            <b>CNIC</b> <a className="pull-right">{user.profile.cnic}</a>
                           </li>
                           <li className="list-group-item">
-                            <b>CNIC</b> <a className="pull-right">xxxxx-xxxxxxx-x</a>
-                          </li>
-                          <li className="list-group-item">
-                            <b>Phone Number</b> <a className="pull-right">xxxx-xxxxxxx</a>
+                            <b>Phone Number</b> <a className="pull-right">{user.profile.phone_num}</a>
                           </li>
                            <li className="list-group-item">
-                            <b>Adress</b> <a className="pull-right">Green view coloy raja wala, p-482, street no-5/c</a>
+                            <b>Adress</b> <a className="pull-right">{user.profile.street}</a>
                           </li>
                            <li className="list-group-item">
-                            <b>Subscription</b> <a className="pull-right">Pre-paid</a>
+                            <b>Subscription</b> <a className="pull-right">{user.profile.subscription.type==="PRE"?"Prepaid":"Postpaid"}</a>
                           </li>
                            <li className="list-group-item">
-                            <b>Meter Number</b> <a className="pull-right">xxxx-xxxxxxx</a>
+                            <b>Meter Number</b> <a className="pull-right">{user.profile.meter.meter_num}</a>
                           </li>
                         </ul>
                         <a href="#" className="btn btn-primary btn-block">Edit</a>

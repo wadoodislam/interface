@@ -50,7 +50,7 @@ class Aside extends Component {
                       </ul>
                     </li>
                     <li><Link to="/history"><i className="fa fa-history"/><span>History</span></Link></li>
-                    <button className="btn btn-flat btn-danger btn-block"><i className="fa fa-lock " style={{width:20}}/><span>  Sign Out</span></button>
+                    <SignOut/>
                   </ul>
                 </section>
               </aside>
@@ -60,15 +60,13 @@ class Aside extends Component {
 
 
 const SignOut = withRouter(({ history }) =>
-        <button
+        <button className="btn btn-flat btn-danger btn-block"
           onClick={() => {
-
               history.push("/");
               localStorage.removeItem('token');
-              sessionStorage.removeItem('token');
           }}
-        >
-          Sign out
+        ><i className="fa fa-lock " style={{width:20}}/>
+            <span>  Sign Out</span>
         </button>);
 
 

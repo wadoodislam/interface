@@ -29,7 +29,7 @@ class TicketCreator extends Component {
             body: data,
             method: "post",
             headers: {
-                "Authorization": "Token " + sessionStorage.getItem('token'),
+                "Authorization": "Token " + localStorage.getItem('token'),
                 "Content-Type": "application/json"
             }
         }
