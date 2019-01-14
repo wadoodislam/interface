@@ -10,6 +10,7 @@ import TicketReader from "../ticket/TicketReader"
 import {Redirect, Route, Switch} from "react-router-dom";
 import Aside from "../aside/Aside";
 import AnnouncementReader from "../announcement/AnnouncementReader";
+import Payments from "../payments/Payments";
 
 class Dashboard extends Component {
     state ={
@@ -45,6 +46,7 @@ class Dashboard extends Component {
                     <Route exact path="/tickets/:ticketId?" component={TicketReader}/>
                     <Route exact path="/announcements" component={AnnouncementReader}/>
                     <Route exact path="/announcements/:announcementId?" component={AnnouncementReader}/>
+                    <Route exact path="/payments" component={Payments}/>
                     <Redirect to={{pathname: "/404"}}/>
                 </Switch>
             </div>
