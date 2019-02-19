@@ -1,43 +1,13 @@
 import React, { Component } from 'react';
 import CurrentGraph from "../graphs/CurrentGraph";
-import {ResponsiveLine} from "@nivo/line";
-import NotFound from "../notfound/404";
+
 
 class Home extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [
-                {
-                    "x": "1",
-                    "y": 12
-                },
-                {
-                    "x": "2",
-                    "y": 24
-                },
-                {
-                    "x": "3",
-                    "y": 36
-                },
-                {
-                    "x": "4",
-                    "y": 50
-                },
-                {
-                    "x": "5",
-                    "y": 67
-                }
-            ]
-        }
-        this.handleClick = this.handleClick.bind(this)
-    }
+    state = {
+        consumptions: [],
+    };
 
     componentDidMount() {
-        this.setState({
-            consumptions: [],
-        });
         this.loadConsumptions()
     }
 
@@ -65,25 +35,8 @@ class Home extends Component {
             })
         })
     }
-    handleClick(e) {
-        e.preventDefault()
-        let {data} = this.state
-        data.push({
-            "x": "6",
-            "y": 40
-        })
-        data.push({
-            "x": "7",
-            "y": 43
-        })
-        this.setState(
-            {
-                data: data
-            }
-        )
-    }
-    render() {
 
+    render() {
         return (
             <div >
                 <section className="content-header">

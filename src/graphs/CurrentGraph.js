@@ -9,6 +9,7 @@ class CurrentGraph extends Component {
             <div className="box-body" style={{height: "900px"}}>
                 <ResponsiveLine
                     data={[{
+                        "id": "1",
                         "color": "hsl(79,70%,50%)",
                         "data": this.props.data
                     }]}
