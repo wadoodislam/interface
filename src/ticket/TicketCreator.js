@@ -23,7 +23,7 @@ class TicketCreator extends Component {
                     "detail": this.state.message
                 }
             ]
-        }
+        };
         const data = JSON.stringify(ticket);
         const options = {
             body: data,
@@ -32,9 +32,9 @@ class TicketCreator extends Component {
                 "Authorization": "Token " + localStorage.getItem('token'),
                 "Content-Type": "application/json"
             }
-        }
-        console.log(data)
-        console.log(options)
+        };
+        console.log(data);
+        console.log(options);
         fetch("http://127.0.0.1:8000/api/tickets/", options)
             .then((response) => response.json()).then((data) => {
             console.log(data)

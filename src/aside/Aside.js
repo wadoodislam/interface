@@ -36,19 +36,7 @@ class Aside extends Component {
                 </ul>
               </li>
               <li><Link to="/documentation"><i className="fa fa-book"/><span>Documentation</span></Link></li>
-              <li className="treeview">
-                <a href="#">
-                  <i className="fa fa-bar-chart"/>
-                  <span>Usage Graphs</span>
-                  <span className="pull-right-container">
-                    <i className="fa fa-angle-left pull-right"/>
-                  </span>
-                </a>
-                <ul className="treeview-menu">
-                  <li><Link to="/currentgraph"><i className="fa fa-line-chart"/> Current Usage</Link></li>
-                  <li><Link to="/graphprediction"><i className="fa fa-line-chart"/> Usage Prediction</Link></li>
-                </ul>
-              </li>
+              <li><Link to="/graphprediction"><i className="fa fa-line-chart"/> Usage Prediction</Link></li>
               <li><Link to="/history"><i className="fa fa-history"/><span>History</span></Link></li>
               <SignOut/>
             </ul>

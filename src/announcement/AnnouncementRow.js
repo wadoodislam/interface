@@ -7,8 +7,8 @@ class AnnouncementRow extends Component {
 
     }
     render() {
-        const {announcement} = this.props
-        const {index} = this.props
+        const {announcement} = this.props;
+        const {index} = this.props;
         return (
             announcement !== undefined ?
             <tr>

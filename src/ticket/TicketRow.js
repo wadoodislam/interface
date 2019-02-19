@@ -6,8 +6,8 @@ class TicketRow extends Component {
         super(props)
     }
     render() {
-        const {ticket} = this.props
-        const {index} = this.props
+        const {ticket} = this.props;
+        const {index} = this.props;
         return (
             ticket !== undefined ?
             <tr>

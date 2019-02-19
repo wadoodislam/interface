@@ -11,7 +11,7 @@ class PaymentForm extends Component {
   async submit(ev) {
       ev.preventDefault();
       let {token} = await this.props.stripe.createToken({name: "Name"});
-      console.log(token)
+      console.log(token);
       let stripe_token = {
             'stripe_token': token.id
       };

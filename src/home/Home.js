@@ -1,43 +1,108 @@
 import React, { Component } from 'react';
+import CurrentGraph from "../graphs/CurrentGraph";
+import {ResponsiveLine} from "@nivo/line";
+import NotFound from "../notfound/404";
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: [
+                {
+                    "x": "1",
+                    "y": 12
+                },
+                {
+                    "x": "2",
+                    "y": 24
+                },
+                {
+                    "x": "3",
+                    "y": 36
+                },
+                {
+                    "x": "4",
+                    "y": 50
+                },
+                {
+                    "x": "5",
+                    "y": 67
+                }
+            ]
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    componentDidMount() {
+        this.setState({
+            consumptions: [],
+        });
+        this.loadConsumptions()
+    }
+
+    loadConsumptions() {
+        let thisComp = this;
+        const options = {
+            method: "get",
+            headers: {
+                "Authorization": "Token " + localStorage.getItem('token')
+            }
+        };
+        console.log(options)
+        fetch("http://127.0.0.1:8000/api/consumptions/", options)
+            .then((response) => response.json())
+            .then(consumptions => {
+            console.log(consumptions);
+            let data= consumptions.results.map((item, index)=>{return(
+                      {
+                          "x": item["time_stamp"],
+                          "y": item["units"]
+                      });
+            });
+            thisComp.setState({
+                consumptions: data
+            })
+        })
+    }
+    handleClick(e) {
+        e.preventDefault()
+        let {data} = this.state
+        data.push({
+            "x": "6",
+            "y": 40
+        })
+        data.push({
+            "x": "7",
+            "y": 43
+        })
+        this.setState(
+            {
+                data: data
+            }
+        )
+    }
     render() {
+
         return (
-                <div >
-                    <section className="content-header">
-                        <h1>
-                            Current Usage of Electricity
-                            <small>preview sample</small>
-                        </h1>
-                    </section>
-                    <section className="content">
-                        <div className="row">
-                            <div className="col-xs-12">
-                                <div className="box box-primary">
-                                    <div className="box-header with-border">
-                                        <i className="fa fa-bar-chart-o"></i>
-                                        <h3 className="box-title">Interactive Area Chart</h3>
-                                        <div className="box-tools pull-right">
-                                            Real time
-                                            <div className="btn-group" id="realtime" data-toggle="btn-toggle">
-                                                <button type="button" className="btn btn-default btn-xs active"
-                                                        data-toggle="on">On
-                                                </button>
-                                                <button type="button" className="btn btn-default btn-xs"
-                                                        data-toggle="off">Off
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="box-body">
-                                        <div id="interactive" style={{height: "300px"}}></div>
-                                    </div>
-                                </div>
-                            </div>
+            <div >
+                <section className="content-header">
+                    <h1>
+                        Current Usage of Electricity
+                    </h1>
+                </section>
+                <section className="content">
+                    <div className="row">
+                        <div className="col-xs-12">
+                            <div className="box box-primary">
+                                <CurrentGraph data={this.state.consumptions}/>
+                             </div>
                         </div>
-                    </section>
-                </div>
-        );
+                    </div>
+                </section>
+            </div>
+        )
     }
 }
+
 export default Home;
