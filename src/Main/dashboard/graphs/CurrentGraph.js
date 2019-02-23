@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import { ResponsiveLine } from '@nivo/line'
+import {getRequest} from "../../utils/Network";
+import Constants from "../../utils/Constants";
 
 
 class CurrentGraph extends Component {
+    state = { consumptions: [] };
+
+    handleData = (data) => {
+        this.setState({
+            consumptions: data.results.map((item)=>{
+                return({
+                    "x": item["time_stamp"],
+                    "y": item["units"]
+                });
+            })
+        })
+    };
+
+    componentDidMount() {
+        getRequest(Constants.consumptionUrl, true)
+            .then(this.handleData)
+    };
 
     render() {
         return (
@@ -11,7 +30,7 @@ class CurrentGraph extends Component {
                     data={[{
                         "id": "1",
                         "color": "hsl(79,70%,50%)",
-                        "data": this.props.data
+                        "data": this.state.consumptions
                     }]}
 
                     margin={{
@@ -88,4 +107,6 @@ class CurrentGraph extends Component {
         );
     }
 }
+
+
 export default CurrentGraph;

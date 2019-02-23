@@ -22,13 +22,12 @@ class Profile extends Component {
                           </li>
                           <li className="list-group-item">
                             <b>CNIC</b> <a className="pull-right">{user.profile.cnic}</a>
-                              <b>farwa</b>
                           </li>
                           <li className="list-group-item">
                             <b>Phone Number</b> <a className="pull-right">{user.profile.phone_num}</a>
                           </li>
                            <li className="list-group-item">
-                            <b>Adress</b> <a className="pull-right">{user.profile.street} </a>
+                            <b>Adress</b> <a className="pull-right">{user.profile.street}</a>
                           </li>
                            <li className="list-group-item">
                             <b>Subscription</b> <a className="pull-right">{user.profile.subscription.type==="PRE"?"Prepaid":"Postpaid"}</a>
