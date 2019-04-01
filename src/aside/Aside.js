@@ -50,6 +50,7 @@ class Aside extends Component {
                 </ul>
               </li>
               <li><Link to="/history"><i className="fa fa-history"/><span>History</span></Link></li>
+              <li><Link to="/chat"><i className="fa fa-history"/><span>Send Message</span></Link></li>
               <SignOut/>
             </ul>
           </section>

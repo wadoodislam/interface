@@ -6,6 +6,7 @@ import Profile from "../profile/Profile";
 // import CurrentGraph from "../graphs/CurrentGraph";
 import TicketCreator from "../ticket/TicketCreator";
 import TicketReader from "../ticket/TicketReader"
+import chat from "../frontend_chat/chat"
 // import GraphPrediction from "../graphs/GraphPrediction";
 import {Redirect, Route, Switch} from "react-router-dom";
 import Aside from "../aside/Aside";
@@ -47,6 +48,7 @@ class Dashboard extends Component {
                     <Route exact path="/announcements" component={AnnouncementReader}/>
                     <Route exact path="/announcements/:announcementId?" component={AnnouncementReader}/>
                     <Route exact path="/payments" component={Payments}/>
+                    <Route exact path="/chat"component={chat}/>
                     <Redirect to={{pathname: "/404"}}/>
                 </Switch>
             </div>

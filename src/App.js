@@ -15,8 +15,13 @@ import 'admin-lte/bower_components/font-awesome/css/font-awesome.min.css'
 import Login from "./login/Login";
 import Dashboard from "./dashboard/Dashboard";
 import NotFound from "./notfound/404";
+import WebSocketInstance from './frontend_chat/Websocket';
 
 class App extends Component {
+    componentDidMount() {
+        WebSocketInstance.connect();
+    }
+
     render() {
         return (
             <BrowserRouter>
