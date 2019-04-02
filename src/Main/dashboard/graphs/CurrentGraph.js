@@ -5,32 +5,87 @@ import Constants from "../../utils/Constants";
 
 
 class CurrentGraph extends Component {
-    state = { consumptions: [] };
+    state = {
+        past_consumptions: {},
+        future_consumptions: {},
+        span: "hours",
+        selected_date: null
+    };
+    monthNames = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    data_sum = (results) => {
+        let dictionary = {};
+        let load, month, day, hour, dt, date;
+
+        for (let i = 0; i < results.length; i++) {
+            load = results[i]["units"] / 100;
+            dt = new Date(results[i].time_stamp);
+            month = dt.getUTCMonth();
+            day = dt.getUTCDate().toString();
+            hour = dt.getUTCHours().toString();
+            date = day + "/" + this.monthNames[month-1];
+            if (dictionary[date] === undefined) {
+                dictionary[date] = {
+                    "x": date,
+                    "y": 0,
+                }
+            }
+            dictionary[date]["y"] += load;
+            if (dictionary[date]["hours"] === undefined) {
+                dictionary[date]["hours"] = []
+            }
+            dictionary[date]["hours"].push({
+                "x": hour,
+                "y": load
+            })
+        }
+        return dictionary
+    };
+
+
+    get_span(consumptions) {
+        if (this.state.span === "hours") {
+            if (this.state.selected_date !== null) {
+                return consumptions[this.state.selected_date]["hours"]
+            }
+        }
+        return []
+    };
 
     handleData = (data) => {
+        let dt = new Date();
+        let month = dt.getUTCMonth();
+        let day = dt.getUTCDate().toString();
+        let past_data = data.results.filter((x)=>{return x.id!==0});
         this.setState({
-            consumptions: data.results.map((item)=>{
-                return({
-                    "x": item["time_stamp"],
-                    "y": item["units"]
-                });
-            })
-        })
+            past_consumptions: this.data_sum(past_data),
+            future_consumptions:  this.data_sum(data.results),
+            selected_date: day + "/" + this.monthNames[month-1]
+        });
     };
 
     componentDidMount() {
-        getRequest(Constants.consumptionUrl, true)
+        getRequest(Constants.predictionUrl, true)
             .then(this.handleData)
     };
 
     render() {
+        let { past_consumptions } = this.state;
+        let { future_consumptions } = this.state;
+        let past_graph_data = this.get_span(past_consumptions);
+        let future_graph_data = this.get_span(future_consumptions);
         return (
             <div className="box-body" style={{height: "900px"}}>
                 <ResponsiveLine
                     data={[{
-                        "id": "1",
+                        "id": "predicted",
                         "color": "hsl(79,70%,50%)",
-                        "data": this.state.consumptions
+                        "data": future_graph_data
+                    },
+                    {
+                        "id": "used",
+                        "color": "hsl(79,70%,50%)",
+                        "data": past_graph_data
                     }]}
 
                     margin={{
@@ -53,7 +108,7 @@ class CurrentGraph extends Component {
                         "tickSize": 5,
                         "tickPadding": 5,
                         "tickRotation": 0,
-                        "legend": "hours",
+                        "legend": this.state.span,
                         "legendOffset": 36,
                         "legendPosition": "middle"
                     }}
@@ -62,7 +117,7 @@ class CurrentGraph extends Component {
                         "tickSize": 5,
                         "tickPadding": 5,
                         "tickRotation": 0,
-                        "legend": "consumption",
+                        "legend": "consumption (kwh)",
                         "legendOffset": -40,
                         "legendPosition": "middle"
                     }}

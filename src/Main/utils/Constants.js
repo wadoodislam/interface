@@ -10,5 +10,6 @@ export default {
     ticketUrl: `${apiUrl}tickets/`,
     announcementUrl: `${apiUrl}announcements/`,
     consumptionUrl: `${apiUrl}consumptions/`,
+    predictionUrl: `${apiUrl}consumptions/predictions`,
     chargeUrl: `${apiUrl}charge/`,
 };
