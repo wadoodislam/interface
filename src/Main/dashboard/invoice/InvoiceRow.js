@@ -11,7 +11,7 @@ class InvoiceRow extends Component {
             <tr>
                 <td>{index}</td>
                 <td>{invoice.paid?
-                    Constants.monthNames[invoice.month]:
+                    Constants.monthNames[invoice.month-1]:
                     <Link to={`/invoices/${index}`}>{Constants.monthNames[invoice.month]}</Link>}</td>
                 <td>{invoice.amount}</td>
                 <td>{invoice.issue_date}</td>

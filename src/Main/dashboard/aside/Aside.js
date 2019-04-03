@@ -37,11 +37,15 @@ class Aside extends Component {
                             <li><Link to="/tickets/create"><i className="fa fa-pencil-square-o"/>Create New</Link></li>
                         </ul>
                         </li>
-                        <li><Link to="/invoices"><i className="fa fa-book"/><span>Invoices</span>
-                            <span className="pull-right-container">
-                                <small className="label pull-right bg-red">{pending_invoices.length}</small>
-                            </span>
-                        </Link></li>
+                        <li>
+                            <Link to="/invoices">
+                                <i className="fa fa-book"/><span>Invoices</span>
+                                <span className="pull-right-container">
+                                    <small className="label pull-right bg-red">{pending_invoices.length}</small>
+                                </span>
+                            </Link>
+                        </li>
+                        <li><Link to="/Chat"><i className="fa fa-bullhorn"/><span>Chat</span></Link></li>
                         <SignOut/>
                     </ul>
                 </section>

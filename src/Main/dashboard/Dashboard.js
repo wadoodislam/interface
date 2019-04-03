@@ -7,6 +7,7 @@ import TicketCreator from "./ticket/TicketCreator";
 import TicketReader from "./ticket/TicketReader"
 import InvoiceReader from "./invoice/InvoiceReader"
 import Aside from "./aside/Aside";
+import Chat from "./chat/Chat";
 import AnnouncementReader from "./announcement/AnnouncementReader";
 import Payments from "./payments/Payments";
 import Constants from "../utils/Constants";
@@ -46,6 +47,7 @@ class Dashboard extends Component {
                                render={(props) => <InvoiceReader {...props} user={user}/>}/>
                         <Route exact path="/payments/:invoiceId?"
                                render={(props) => <Payments {...props} user={user}/>}/>
+                        <Route exact path="/chat" component={Chat}/>
                         <Redirect to={{pathname: "/404"}}/>
                     </Switch>
                 </div>

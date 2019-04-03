@@ -1,10 +1,9 @@
 import React from 'react';
-// import sidepanel from './frontend_chat/sidepanel';
-import WebSocketInstance from './Websocket';
-import './../assets/style.css'
+import WebSocketInstance from '../../utils/Websocket';
+import '../../../assets/style.css'
 
 
-class chat extends React.Component {
+class Chat extends React.Component {
 
     constructor(props) {
         super(props)
@@ -38,11 +37,9 @@ class chat extends React.Component {
         })
     }
     addMessage(message){
-        debugger
         this.setState({
             messages: [...this.state.messages, message]
         });
-        debugger
     }
 
     sendMessageHandler = e =>{
@@ -125,4 +122,5 @@ class chat extends React.Component {
             )
     }
 }
-export default chat;
+
+export default Chat;
