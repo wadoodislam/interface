@@ -10,7 +10,9 @@ class InvoiceRow extends Component {
             invoice !== undefined ?
             <tr>
                 <td>{index}</td>
-                <td><Link to={`/invoices/${index}`}>{Constants.monthNames[invoice.month]}</Link></td>
+                <td>{invoice.paid?
+                    Constants.monthNames[invoice.month]:
+                    <Link to={`/invoices/${index}`}>{Constants.monthNames[invoice.month]}</Link>}</td>
                 <td>{invoice.amount}</td>
                 <td>{invoice.issue_date}</td>
                 <td>{invoice.paid?

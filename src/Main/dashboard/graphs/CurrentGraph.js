@@ -52,10 +52,10 @@ class CurrentGraph extends Component {
     };
 
     handleData = (data) => {
-        let dt = new Date();
+        let past_data = data.results.filter((x)=>{return x.id!==0});
+        let dt = new Date(past_data[past_data.length-1].time_stamp);
         let month = dt.getUTCMonth();
         let day = dt.getUTCDate().toString();
-        let past_data = data.results.filter((x)=>{return x.id!==0});
         this.setState({
             past_consumptions: this.data_sum(past_data),
             future_consumptions:  this.data_sum(data.results),

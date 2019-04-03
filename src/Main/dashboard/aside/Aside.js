@@ -6,6 +6,7 @@ import {withRouter} from "react-router-dom";
 class Aside extends Component {
     render() {
         let {user} = this.props;
+        let pending_invoices = user? user.profile.invoices.filter((x)=>!x.paid):[];
 
         return (
             <aside className="main-sidebar">
@@ -36,8 +37,11 @@ class Aside extends Component {
                             <li><Link to="/tickets/create"><i className="fa fa-pencil-square-o"/>Create New</Link></li>
                         </ul>
                         </li>
-                        <li><Link to="/documentation"><i className="fa fa-book"/><span>Documentation</span></Link></li>
-                        <li><Link to="/history"><i className="fa fa-history"/><span>History</span></Link></li>
+                        <li><Link to="/invoices"><i className="fa fa-book"/><span>Invoices</span>
+                            <span className="pull-right-container">
+                                <small className="label pull-right bg-red">{pending_invoices.length}</small>
+                            </span>
+                        </Link></li>
                         <SignOut/>
                     </ul>
                 </section>

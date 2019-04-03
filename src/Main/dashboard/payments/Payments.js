@@ -22,7 +22,7 @@ class Payments extends Component {
                     <StripeProvider apiKey="pk_test_3UcAk15uLvXGC7aO8o4HRrvn">
                       <div className="checkout">
                         <Elements>
-                            <PaymentForm invoiceId={invoiceId}/>
+                            <PaymentForm invoiceId={invoices[invoiceId-1].id}/>
                         </Elements>
                       </div>
                     </StripeProvider>
