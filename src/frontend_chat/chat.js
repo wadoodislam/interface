@@ -1,6 +1,8 @@
 import React from 'react';
 // import sidepanel from './frontend_chat/sidepanel';
 import WebSocketInstance from './Websocket';
+import './../assets/style.css'
+
 
 class chat extends React.Component {
 
