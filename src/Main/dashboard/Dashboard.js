@@ -5,6 +5,7 @@ import Home from "./home/Home";
 import Profile from "./profile/Profile";
 import TicketCreator from "./ticket/TicketCreator";
 import TicketReader from "./ticket/TicketReader"
+import InvoiceReader from "./invoice/InvoiceReader"
 import Aside from "./aside/Aside";
 import AnnouncementReader from "./announcement/AnnouncementReader";
 import Payments from "./payments/Payments";
@@ -41,7 +42,10 @@ class Dashboard extends Component {
                         <Route exact path="/tickets/:ticketId?" component={TicketReader}/>
                         <Route exact path="/announcements" component={AnnouncementReader}/>
                         <Route exact path="/announcements/:announcementId?" component={AnnouncementReader}/>
-                        <Route exact path="/payments" component={Payments}/>
+                        <Route exact path="/invoices/:invoiceId?"
+                               render={(props) => <InvoiceReader {...props} user={user}/>}/>
+                        <Route exact path="/payments/:invoiceId?"
+                               render={(props) => <Payments {...props} user={user}/>}/>
                         <Redirect to={{pathname: "/404"}}/>
                     </Switch>
                 </div>

@@ -11,7 +11,6 @@ class CurrentGraph extends Component {
         span: "hours",
         selected_date: null
     };
-    monthNames = ["Jan", "Feb", "Mar", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     data_sum = (results) => {
         let dictionary = {};
@@ -23,7 +22,7 @@ class CurrentGraph extends Component {
             month = dt.getUTCMonth();
             day = dt.getUTCDate().toString();
             hour = dt.getUTCHours().toString();
-            date = day + "/" + this.monthNames[month-1];
+            date = day + "/" + Constants.monthNames[month-1];
             if (dictionary[date] === undefined) {
                 dictionary[date] = {
                     "x": date,
@@ -60,7 +59,7 @@ class CurrentGraph extends Component {
         this.setState({
             past_consumptions: this.data_sum(past_data),
             future_consumptions:  this.data_sum(data.results),
-            selected_date: day + "/" + this.monthNames[month-1]
+            selected_date: day + "/" + Constants.monthNames[month-1]
         });
     };
 

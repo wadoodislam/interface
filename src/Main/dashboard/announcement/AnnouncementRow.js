@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Link from "react-router-dom/es/Link";
 
 class AnnouncementRow extends Component {
-    constructor(props){
-        super(props)
-
-    }
     render() {
         const {announcement} = this.props;
         const {index} = this.props;
@@ -19,7 +15,8 @@ class AnnouncementRow extends Component {
                 <td>{announcement.effective_till}</td>
                 <td>{announcement.area.map((item)=>item)}</td>
             </tr>
-            :null);
+            :null
+        );
     }
 }
 export default AnnouncementRow;

@@ -9,8 +9,8 @@ class PaymentForm extends Component {
     submit = async (event) => {
         event.preventDefault();
         let {token} = await this.props.stripe.createToken({name: "Name"});
-        let stripe_token = { 'stripe_token': token.id };
-        postRequest(Constants.chargeUrl, JSON.stringify(stripe_token), true)
+        let charge_data = { stripe_token: token.id, invoiceId: this.props.invoiceId};
+        postRequest(Constants.chargeUrl, JSON.stringify(charge_data), true)
             .then((data)=>{this.setState({complete: true});});
     };
 
