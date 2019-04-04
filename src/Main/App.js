@@ -18,19 +18,25 @@ import NotFound from "./notfound/404";
 import WebSocketInstance from './utils/Websocket';
 
 
-const App = props => {
-    return (
-        <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/404" component={NotFound}/>
-                    <PrivateRoute component={Dashboard} />
-                </Switch>
-            </div>
-        </BrowserRouter>
-    );
-};
+class App extends Component {
+    componentDidMount() {
+        WebSocketInstance.connect();
+    }
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div>
+                    <Switch>
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/404" component={NotFound}/>
+                        <PrivateRoute component={Dashboard} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
+        );
+    }
+}
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
