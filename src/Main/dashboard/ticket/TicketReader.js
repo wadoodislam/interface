@@ -28,7 +28,7 @@ class TicketReader extends Component {
             }
             return <NotFound internal={true} />;
         }
-        return <TicketsTable tickets={tickets} />
+        return <TicketsTable tickets={tickets} openChat={this.props.openChat} />
     }
 }
 
@@ -76,35 +76,33 @@ function TicketPage(props){
 function TicketsTable(props) {
     let {tickets} = props;
     return (
-            <div>
-                <section className="content">
-                    <div className="row">
-                        <div className="col-xs-12">
-                            <div className="box">
-                                <div className="box-header">
-                                    <h3 className="box-title">Tickets</h3>
-                                </div>
-                                <div className="box-body table-responsive no-padding">
-                                    <table className="table table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Subject</th>
-                                                <th>Date Opened</th>
-                                                <th>Status</th>
-                                                <th>Detail</th>
-                                            </tr>
-                                            {tickets.length > 0 ? tickets.map((ticket, index)=>{
-                                                return (<TicketRow key={ticket.id} index={index+1} ticket={ticket}/>);
-                                            }):null}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+        <div className="row">
+            <div className="col-xs-12">
+                <div className="box">
+                    <div className="box-header">
+                        <h3 className="box-title">Tickets</h3>
                     </div>
-                </section>
+                    <div className="box-body table-responsive no-padding">
+                        <table className="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Subject</th>
+                                    <th>Date Opened</th>
+                                    <th>Status</th>
+                                    <th>Detail</th>
+                                    <th>Action</th>
+                                </tr>
+                                {tickets.length > 0 ? tickets.map((ticket, index)=>{
+                                    return (<TicketRow key={ticket.id} index={index+1} ticket={ticket}
+                                                       openChat={props.openChat}/>);
+                                }):null}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+        </div>
         );
 }
 

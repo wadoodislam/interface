@@ -16,6 +16,7 @@ class TicketRow extends Component {
                 <td>{ticket.date_opened}</td>
                 <td><span className="label label-success">{ticket.status}</span></td>
                 <td>{ticket.messages[0].detail}</td>
+                <td><button className="btn btn-primary" onClick={()=>this.props.openChat(ticket)}>Open Chat</button></td>
             </tr>
             :null);
     }

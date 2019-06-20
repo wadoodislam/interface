@@ -11,29 +11,33 @@ import 'admin-lte/dist/css/AdminLTE.min.css'
 import 'admin-lte/dist/css/skins/_all-skins.min.css'
 import 'admin-lte/bower_components/Ionicons/css/ionicons.css'
 import 'admin-lte/bower_components/font-awesome/css/font-awesome.min.css'
+import '../assets/custom.css'
 
+import Reducer from '../reducers/index';
 import Login from "./login/Login";
 import Dashboard from "./dashboard/Dashboard";
 import NotFound from "./notfound/404";
-import WebSocketInstance from './utils/Websocket';
+import { createStore } from "redux";
+import Provider from "react-redux/es/components/Provider";
 
+const store =  createStore(Reducer);
 
 class App extends Component {
-    componentDidMount() {
-        WebSocketInstance.connect();
-    }
+
 
     render() {
         return (
-            <BrowserRouter>
-                <div>
-                    <Switch>
-                        <Route exact path="/login" component={Login} />
-                        <Route exact path="/404" component={NotFound}/>
-                        <PrivateRoute component={Dashboard} />
-                    </Switch>
-                </div>
-            </BrowserRouter>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <div>
+                        <Switch>
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/404" component={NotFound}/>
+                            <PrivateRoute component={Dashboard} />
+                        </Switch>
+                    </div>
+                </BrowserRouter>
+            </Provider>
         );
     }
 }

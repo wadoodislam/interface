@@ -1,0 +1,26 @@
+.login-wrapper {
+    min-height: 100%;
+}
+
+.login-footer{
+    margin-left: 0px;
+}
+
+.sm-no-margin-bottom{
+    margin-bottom: 0px;
+}
+
+#sm-chat{
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
+}
+
+.direct-chat-text {
+    margin-left: 0px;
+    display: inline-block;
+}
+
+.right .direct-chat-text {
+    margin-right: 5px;
+}
